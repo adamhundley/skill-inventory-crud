@@ -1,7 +1,7 @@
 <form class="" action="/skills/<%= @skill.id %>" method="post">
   <input type="hidden" name="_method" value="put">
   <h1>Edit Skill</h1>
-  <input type="text" name="skill[name]" value="<%= @task.name %>"/><br>
-  <textarea name="skill[status]"/><%= @task.status %></textarea>
-  <input type="submit"/>
+  <input type="text" name="skill[name]" value="<%= @skill.name %>"/><br>
+  <textarea name="skill[status]"/><%= @skill.status %></textarea>
+  <input type="submit" value="Submit"/>
 </form>

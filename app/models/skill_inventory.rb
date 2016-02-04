@@ -1,5 +1,4 @@
 require 'yaml/store'
-require 'models/skill'
 
 class SkillInventory
   attr_reader :database
@@ -43,11 +42,18 @@ class SkillInventory
     end
   end
 
-  def update(task, id)
+  def update(skill, id)
     database.transaction do
       target_skill = database["skills"].find { |s| s["id"] == id }
       target_skill["name"] = skill[:name]
       target_skill["status"] = skill[:status]
+    end
+  end
+
+  def delete_all
+    database.transaction do
+      database["skills"] = []
+      database["next_id"] = 0
     end
   end
 end

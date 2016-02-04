@@ -1,9 +1,5 @@
-require 'models/skill_inventory'
 
 class SkillInventoryApp < Sinatra::Base
-  set :root, File.join(File.dirname(__FILE__), '..')
-  set :method_override, true
-
   get '/' do
     erb :dashboard
   end
@@ -28,7 +24,7 @@ class SkillInventoryApp < Sinatra::Base
   end
 
   get "/skills/:id/edit" do |id|
-    @task = skill_inventory.find(id.to_i)
+    @skill = skill_inventory.find(id.to_i)
     erb :edit
   end
 
@@ -46,9 +42,12 @@ class SkillInventoryApp < Sinatra::Base
     erb :error
   end
 
-
   def skill_inventory
-    database = YAML::Store.new('db/skill_manager')
+    if ENV["RACK_ENV"] == "test"
+      database = YAML::Store.new('db/skill_manager_test')
+    else
+      database = YAML::Store.new('db/skill_manager')
+    end
     @skill_inventory ||= SkillInventory.new(database)
   end
 

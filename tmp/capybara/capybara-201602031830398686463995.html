@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/application.css">
+  <title>Skill Inventory</title>
+</head>
+<body>
+  <h1>My Skills</h1>
+
+<ol class="skills">
+  <h3>1</h3>: <a href="/skills/1">test name</a>
+  <a href="/skills/1/edit"><input class="btn btn-warning" type="button" name="name" value="Edit"></a>
+  <form action="/skills/1" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit"  value="Delete">
+  </form>
+  
+</ol>
+
+</body>
+</html>
