@@ -44,9 +44,9 @@ class SkillInventoryApp < Sinatra::Base
 
   def skill_inventory
     if ENV["RACK_ENV"] == "test"
-      database = YAML::Store.new('db/skill_manager_test')
+      database = Sequel.sqlite("db/skill_inventory_test.sqlite3")
     else
-      database = YAML::Store.new('db/skill_manager')
+      database = Sequel.sqlite("db/skill_inventory_development.sqlite3")
     end
     @skill_inventory ||= SkillInventory.new(database)
   end

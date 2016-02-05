@@ -2,9 +2,9 @@ require_relative '../test_helper'
 
 class SkillTest < Minitest::Test
   def test_task_instantiates
-    data = {"name"       => "name",
-            "id"          => 1,
-            "status" => "this is a status"}
+    data = {:name     => "name",
+            :id      => 1,
+            :status  => "this is a status"}
 
     skill = Skill.new(data)
 
@@ -12,9 +12,9 @@ class SkillTest < Minitest::Test
   end
 
   def test_assigns_attributes_correctly
-    data = {"name"       => "name",
-            "id"          => 1,
-            "status" => "this is a status"}
+    data = {:name     => "name",
+            :id      => 1,
+            :status  => "this is a status"}
 
     skill = Skill.new(data)
 
