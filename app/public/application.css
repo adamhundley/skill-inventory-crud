@@ -1,0 +1,25 @@
+.navigation {
+  color: rgb(113,148,165);
+  text-align: center;
+}
+
+.main {
+  background-color: #fff3aa;
+  font-family: monospace;
+}
+
+a {
+  font-size: 30px;
+  color:
+  color: rgb(113,148,165);
+  text-decoration: none;
+
+}
+
+.skills{
+  color: rgb(113,148,165);
+}
+
+a:hover {
+  text-decoration: none;
+}

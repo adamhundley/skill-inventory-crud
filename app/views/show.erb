@@ -1,2 +1,7 @@
-<%= @task.id %>: <%= @task.name %><br>
-<%= @task.status %><br>
+<div class="col-md-6 col-md-offset-3">
+  <div class="skills">
+    <h2 class="skills"><%= @skill.id %>: <%= @skill.name %></h2>
+    <h3>Category: <%= (@categories.find { |c| @skill.category_id == c.id }).category_name %></h3>
+    <h3><%= @skill.status %></h3><br>
+</div>
+</div>

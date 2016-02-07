@@ -2,9 +2,19 @@
 <html>
 <head>
   <link rel="stylesheet" href="/application.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <title>Skill Inventory</title>
 </head>
-<body>
-  <%= yield %>
+<body class="main">
+  <div class="navigation">
+    <ul class="nav nav-pills">
+        <li class="col-sm-12 col-md-3 col-md-offset-3" role="presentation"><a href="/skills"> <h1>Current Skillz</h1></a></li>
+        <li class="col-sm-12 col-md-3" role="presentation"><a href="/skills/new"> <h1>Add New Skill</h1> </a></li>
+      </ul>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>

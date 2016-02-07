@@ -1,12 +1,16 @@
-<h1>My Skills</h1>
-<% @skills.each do |skill| %>
-
-<ol class="skills">
-  <h3><%= skill.id %></h3>: <a href="/skills/<%= skill.id %>"><%= skill.name %></a>
-  <a href="/skills/<%= skill.id %>/edit"><input class="btn btn-warning" type="button" name="name" value="Edit"></a>
-  <form action="/skills/<%= skill.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit"  value="Delete">
-  </form>
-  <% end %>
-</ol>
+<div class="col-md-6 col-md-offset-3">
+  <ol class="skills">
+    <% @skills.each do |skill| %>
+      <h2 class="skills"><%= skill.id %>: <%= skill.name %></h2>
+      <h3>Category: <%= (@categories.find { |c| skill.category_id == c.id }).category_name %></h3>
+      <div class="btn-toolbar" role="toolbar" aria-label="...">
+        <a href="/skills/<%= skill.id %>"><input class="btn btn-success" type="button" name="name" value="View Skill"></a>
+        <a href="/skills/<%= skill.id %>/edit"><input class="btn btn-warning" type="button" name="name" value="Edit"></a>
+        <form action="/skills/<%= skill.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input class="btn btn-danger" type="submit"  value="Delete">
+        </form>
+      </div><br>
+    <% end %>
+  </ol>
+</div>

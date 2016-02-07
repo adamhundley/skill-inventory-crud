@@ -9,7 +9,6 @@ require 'tilt/erb'
 DatabaseCleaner[:sequel, {:connection => Sequel.sqlite("db/skill_inventory_test.sqlite3")}].strategy = :truncation
 
 module TestHelpers
-
   def setup
     DatabaseCleaner.start
     super
@@ -26,12 +25,19 @@ module TestHelpers
   end
 
   def create_skills(number)
+
     number.times do |i|
     skill_inventory.create(
       name:       "name#{i+1}",
-      description: "description#{i+1}",
       status:      "status#{i+1}")
     end
+    category_inventory.create(category_name: "Work")
+    category_inventory.create(category_name: "Play")
+  end
+
+  def category_inventory
+    database = Sequel.sqlite("db/skill_inventory_test.sqlite3")
+    @category_inventory ||= CategoryInventory.new(database)
   end
 end
 

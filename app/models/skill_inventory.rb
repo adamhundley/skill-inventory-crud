@@ -6,6 +6,10 @@ class SkillInventory
     @database = database
   end
 
+  def joined_tables
+    dataset.join(:categories, :id => :category_id)
+  end
+
   def dataset
     database.from(:skills)
   end
@@ -20,22 +24,14 @@ class SkillInventory
   end
 
   def all
-    dataset.map { |skill| Skill.new(skill)}
+    dataset.map { |skill| Skill.new(skill) }
   end
 
   def delete(id)
     dataset.where(:id => id).delete
-
   end
 
   def update(skill, id)
     dataset.where(:id => id).update(skill)
-  end
-
-  def delete_all
-    database.transaction do
-      database["skills"] = []
-      database["next_id"] = 0
-    end
   end
 end

@@ -11,7 +11,6 @@ class SkillInventoryTest < Minitest::Test
     assert skill.id
     assert_equal "name1", skill.name
     assert_equal "status1", skill.status
-    assert_equal "description1", skill.description
   end
 
   def test_can_return_all_skills
@@ -33,7 +32,6 @@ class SkillInventoryTest < Minitest::Test
     assert_equal id, skill.id
     assert_equal "name3", skill.name
     assert_equal "status3", skill.status
-    assert_equal "description3", skill.description
   end
 
   def test_can_update_specific_skill
