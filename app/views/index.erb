@@ -1,7 +1,8 @@
 <div class="col-md-6 col-md-offset-3">
   <ol class="skills">
     <% @skills.each do |skill| %>
-      <h2 class="skills"><%= skill.id %>: <%= skill.name %></h2>
+      <h2 class="skill_label"><%= skill.id %>: <%= skill.name %></h2>
+
       <h3>Category: <%= (@categories.find { |c| skill.category_id == c.id }).category_name %></h3>
       <div class="btn-toolbar" role="toolbar" aria-label="...">
         <a href="/skills/<%= skill.id %>"><input class="btn btn-success" type="button" name="name" value="View Skill"></a>

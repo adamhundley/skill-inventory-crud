@@ -6,7 +6,6 @@ class SkillInventoryApp < Sinatra::Base
   get '/skills' do
     @skills = skill_inventory.all
     @categories = category_inventory.all
-    # require "pry"; binding.pry
     erb :index
   end
 
@@ -15,13 +14,12 @@ class SkillInventoryApp < Sinatra::Base
   end
 
   get '/skills/new' do
-    if @categories.nil?
-      @categories = category_inventory.all
-    else
+    if category_inventory.all.count == 0
       category_inventory.create(category_name: "School")
-      category_inventory.create(category_name: "Church")
       category_inventory.create(category_name: "Life")
       category_inventory.create(category_name: "Fun")
+      @categories = category_inventory.all
+    else
       @categories = category_inventory.all
     end
     erb :new_skill

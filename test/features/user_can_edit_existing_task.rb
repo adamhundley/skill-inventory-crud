@@ -19,7 +19,5 @@ class UserCanEditExistingTaskTest < Minitest::Test
     within(".skills") do
       assert page.has_content? "Freaking Skill"
     end
-
   end
-
 end

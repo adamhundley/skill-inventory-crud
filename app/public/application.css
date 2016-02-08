@@ -13,13 +13,21 @@ a {
   color:
   color: rgb(113,148,165);
   text-decoration: none;
-
 }
 
 .skills{
   color: rgb(113,148,165);
 }
 
+.skill_label {
+  color: rgb(113,148,165);
+}
+
+#greeting {
+  text-align: center;
+  font-size: 80px;
+  color: blue;
+}
 a:hover {
   text-decoration: none;
 }
